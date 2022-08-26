@@ -1,0 +1,148 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: Century gothic;
+}
+
+.gridPrincipal{
+    width: 90%;
+    height: 95vh;
+    max-width: 1000px;
+    margin: 10px auto;
+    display:grid;
+    gap: 10px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 15% 65% 20%;
+    grid-template-areas: 
+    "header header header header"
+    "main main main aside"
+    "footer footer footer footer";
+}
+.header{
+    grid-area: header;
+    font-size: 2.5rem;
+    background: linear-gradient(to right, rgb(167, 165, 165), rgb(44, 44, 44));
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: 
+    "headerLogo headerNav";
+ }
+.headerLogo{
+    grid-area: headerLogo;
+    
+}
+.imagenLogo{
+    width: 80%;
+    margin-top: 15%;
+}
+.headerNav{
+    grid-area: headerNav;
+    align-self:center;
+    text-align: end;
+
+}
+
+.headerNav ul li{
+    display: inline-block;
+}
+
+.headerNav ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ff7b05;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.headerNav ul li a:hover{
+    color: #914809;
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: ;
+}
+
+.main{
+    font-size: 2.0rem;
+    grid-area: main;
+    
+    background-color: red;
+}
+
+.aside{
+    font-size: 3.0rem;
+    grid-area: aside;
+    background-color: aqua;
+}
+
+.footer{
+    
+    grid-area: footer;
+    background-color:rgb(44, 44, 44);
+    font-weight: bold;
+    font-size: 7px;
+    color: aliceblue;
+    
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "pieLogo pieLogo pieLogo pieLogo"
+    "widget1 widget1 widget2 widget2";
+} 
+
+.pieLogo{
+    font-size: 1.2rem;
+    grid-area: pieLogo;
+    text-align: center;
+    height: auto;
+}
+
+.imagenPie{
+    width: 10%;
+    margin-top: 5px;
+}
+
+.widget1{
+    grid-area: widget1;
+    background-color:rgb(44, 44, 44);
+    color: chocolate;
+    font-weight: bold;
+    font-size: 2.0rem;
+    text-align:center;
+}
+
+.widget2{
+    grid-area: widget2;
+    background-color:rgb(44, 44, 44);
+    color: chocolate;
+    font-size: 2.0rem;
+    text-align: center;
+}
+
+.widget1 ul li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #ff7b05;
+    font-weight: bold;
+}
+
+.widget1 ul li a:hover{
+    color: #914809;
+    font-weight: bold;
+}
+
+.widget2 ul li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #ff7b05;
+    font-weight: bold;
+}
+
+.widget2 ul li a:hover{
+    color: #914809;
+    font-weight: bold;
+}
