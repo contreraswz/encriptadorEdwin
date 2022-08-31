@@ -1,12 +1,78 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encriptador</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/style/reset.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="/style/styleEncriptador.css" type="text/css" media="screen">
+        
+        
+        <title>ContrerasWZ</title>
+    </head>
+    <body class="gridPrincipal">
+        <header class="header">
+            <div class="headerLogo">
+               <img src="/assets/z.png" class="imagenLogo">
+            </div>
+            
+            <nav class="headerNav"> 
+                    <ul>
+                       <li><a href="/index.html">home</a></li>
+                        <li><a href="/encriptador.html">Encriptador</a></li>
+                        <li><a href="/about.html">about</a></li>
+                    </ul> 
+            </nav> 
+        </header>
     
-</body>
+        <main class="main">
+            <div class="encriptadorIngreso">
+                    <form id="formTextoEncriptar" action="">
+                        <textarea id="textoEncriptar" class="textoEncriptar"  placeholder="Introduce el texto que quieres encriptar"></textarea>
+                        <ul>
+                            <li><input class="buttonEncriptar" onclick="encriptar()" type="button" value="Encriptar"></li>
+                            <li><input class="buttonDesencriptar" onclick="desencriptar()" type="button" value="Desencriptar"></li>
+                        </ul>              
+                    </form> 
+            </div>
+<!--         <div class="modal-container">
+            <div class="modal modal-close">
+                <p class="close">X</p>
+                <img src="/assets/ajolote.png" alt="">
+                <div class="modal-textos">
+                    <h2>Get premiun</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem commodi distinctio in iste architecto excepturi voluptates eos temporibus, cupiditate voluptatibus, ullam quasi tenetur eaque magnam voluptate recusandae, nostrum aspernatur eum.</p>
+                </div>
+            </div>
+
+        </div> -->
+            
+            <div class="encriptadorResultado">
+                <div id="textoResultado" class="textoResultado" contenteditable="true" data-placeholder="Resultado del texto encriptado"></div>
+            </div>
+            <button class="buttonCopiar">COPIAR</button>
+        </main>
+
+        <footer class="footer">
+            <div class="pieLogo" >
+                 <img src="/assets/zero.png" alt="logoZero" class="imagenPie"> 
+                 <p>©By ContrerasWZ</p>
+            </div>
+            <div class="widget1">
+                <ul>
+                    <li><a href="#">interes 1</a></li>
+                    <li><a href="#">interes 2</a></li>
+                    <li><a href="#">interes 3</a></li>
+                    </ul>
+            </div>
+            <div class="widget2">
+                <ul class="">
+                    <li><a href="#">interes 1</a></li>
+                    <li><a href="#">interes 2</a></li>
+                    <li><a href="#">interes 3</a></li>
+                </ul>
+            </div>
+        </footer> 
+        <script src="/script/scriptEncriptador.js"></script>
+    </body>
 </html>

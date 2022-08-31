@@ -24,7 +24,7 @@ html{
 }
 .header{
     grid-area: header;
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     background: linear-gradient(to right, rgb(167, 165, 165), rgb(44, 44, 44));
     display: grid;
     grid-template-columns: 20% 80%;
@@ -43,7 +43,6 @@ html{
     grid-area: headerNav;
     align-self:center;
     text-align: end;
-
 }
 
 .headerNav ul li{
@@ -61,8 +60,7 @@ html{
 .headerNav ul li a:hover{
     color: #914809;
     font-weight: bold;
-    margin-right: 10px;
-    font-size: ;
+    font-size:2rem ;
 }
 
 .main{
