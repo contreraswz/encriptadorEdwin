@@ -59,11 +59,11 @@ function encriptar() {
 
 function desencriptar(){
     var textoDes = document.getElementById("textoEncriptar").value;
-    textoDes = textoDes.replace("ai","a");
-    textoDes = textoDes.replace("enter","e");
-    textoDes = textoDes.replace("imes","i");
-    textoDes = textoDes.replace("ober","o");
-    textoDes = textoDes.replace("ufat","u");
+    textoDes = textoDes.replaceAll("ai","a");
+    textoDes = textoDes.replaceAll("enter","e");
+    textoDes = textoDes.replaceAll("imes","i");
+    textoDes = textoDes.replaceAll("ober","o");
+    textoDes = textoDes.replaceAll("ufat","u");
     document.getElementById("textoResultado").innerHTML=textoDes;
 }
 
