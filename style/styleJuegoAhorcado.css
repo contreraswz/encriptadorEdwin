@@ -1,0 +1,310 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%;
+    font-family: Century gothic;
+}
+
+.gridPrincipal{
+    width: 90%;
+    height: 95vh;
+    max-width: 1000px;
+    margin: 10px auto;
+    display:grid;
+    gap: 10px;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: 15% 65% 20%;
+    grid-template-areas: 
+    "header header header header"
+    "main main main main"
+    "footer footer footer footer";
+}
+.header{
+    grid-area: header;
+    font-size: 2.2rem;
+    background: linear-gradient(to right, rgb(167, 165, 165), rgb(44, 44, 44));
+    display: grid;
+    grid-template-columns: 20% 80%;
+    grid-template-areas: 
+    "headerLogo headerNav";
+ }
+.headerLogo{
+    grid-area: headerLogo;
+}
+
+.imagenLogo{
+    width: 80%;
+    margin-top: 15%;
+}
+
+.headerNav{
+    grid-area: headerNav;
+    align-self:center;
+    text-align: end;
+}
+
+.headerNav ul li{
+    display: inline-block;
+}
+
+.headerNav ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #ff7b05;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.headerNav ul li a:hover{
+    color: #914809;
+    font-weight: bold;
+    font-size:2rem ;
+}
+
+.main{
+    grid-area: main;
+    font-size: 2.0rem;
+    grid-template-columns: 1fr .7fr;
+    grid-template-rows: .1fr 1fr;
+    grid-template-areas: 
+    "mainTitulo mainTitulo"
+    "areaAhorcado areaPalabra";
+    background: linear-gradient(rgb(167, 165, 165), rgb(44, 44, 44));
+    display: grid;
+    column-gap: 5px;;
+    grid-template-columns:1fr .7fr;
+}
+
+.mainTitulo{
+    grid-area: mainTitulo;
+    text-align: center;
+    align-self: center;
+    font-size: 4rem;
+    font-weight: bold;
+}
+
+.areaAhorcado{
+    grid-area: areaAhorcado;
+    display: grid;
+    grid-template-rows: 1fr .5fr .2fr;
+    grid-template-areas: 
+    "areaAhorcadoFigura "
+    "areaAhorcadoPalabra "
+    "areaAhorcadoBotones";
+    border-color: #ff7b05;
+    border-style:solid;
+    border-width: 4px;
+    border-radius: 10px;
+}
+
+.areaAhorcadoFigura{
+    grid-area: areaAhorcadoFigura;
+    
+    background-color: #52304a;
+     width: 80%;
+    height: 90%;
+    margin: auto;
+    text-align: center;
+    align-self: center;
+
+}
+
+.areaAhorcadoPalabra{
+    grid-area: areaAhorcadoPalabra;
+    font-size: 3rem;
+    color: #fff;
+    text-align: center;
+    align-self: center;
+    font-weight: bold;
+}
+
+.areaAhorcadoBotones{
+    text-align: center;
+}
+
+.areaAhorcadoBotones button{
+    font-size: 2.5rem;
+    border-radius: 5px;
+    padding: 10px;
+    width: 150px;
+    font-weight: bold;
+}
+
+.areaAhorcadoBotones button:hover{
+    font-size: 2.1rem;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.areaLetra{
+    grid-area: areaPalabra;
+    display: grid;
+    grid-template-rows: .3fr .5fr 1fr;
+    justify-items: center;
+    align-items: center;
+    border-color: #ff7b05;
+    border-style:solid;
+    border-width: 4px;
+    border-radius: 10px;
+}
+
+.areaLetraTitulo{
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.areaLetraLeer{
+    background-color: rgba(31, 32, 32, 0.199);
+    font-size: 3rem;
+    width: 10rem;
+    height: 4rem;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.411);
+    text-align: center;
+    color: #fff;
+}
+
+.areaLetraUsada{
+    align-self: start;
+    text-align: center;
+    font-weight: bold;
+}
+
+.footer{
+    grid-area: footer;
+    background-color:rgb(44, 44, 44);
+    font-weight: bold;
+    font-size: 7px;
+    color: aliceblue;
+    
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "pieLogo pieLogo pieLogo pieLogo"
+    "widget1 widget1 widget2 widget2";
+} 
+
+.pieLogo{
+    font-size: 1.2rem;
+    grid-area: pieLogo;
+    text-align: center;
+    height: auto;
+}
+
+.imagenPie{
+    width: 10%;
+    margin-top: 5px;
+}
+
+.widget1{
+    grid-area: widget1;
+    background-color:rgb(44, 44, 44);
+    color: chocolate;
+    font-weight: bold;
+    font-size: 2.0rem;
+    text-align:center;
+}
+
+.widget2{
+    grid-area: widget2;
+    background-color:rgb(44, 44, 44);
+    color: chocolate;
+    font-size: 2.0rem;
+    text-align: center;
+}
+
+.widget1 ul li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #ff7b05;
+    font-weight: bold;
+}
+
+.widget1 ul li a:hover{
+    color: #914809;
+    font-weight: bold;
+}
+
+.widget2 ul li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #ff7b05;
+    font-weight: bold;
+}
+
+.widget2 ul li a:hover{
+    color: #914809;
+    font-weight: bold;
+}
+
+
+
+/* CSS modal */
+.modal{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, rgb(168, 202, 186,.7) 0%, rgb(82, 48, 74,.7) 120%);
+    opacity: 0;
+    visibility: hidden;
+    
+}
+
+.modalContenedor{
+    width: 400px;
+    height: 300px;
+    margin: auto;
+    background: #fff;
+    box-sizing: 1px 7px 25px rgba(0,0,0,0.6);
+    position: relative;
+    text-align: center;
+    
+}
+
+.modalContenedor header{
+    padding: 15px;
+    background: #ff7b05;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.modalContenido{
+    font-size: 2rem;
+    font-weight:bold;
+    top: 20px;
+    margin-top: 20px;
+}
+
+.buttonCerrar{
+    position: absolute;
+    top: 7px;
+    right: 7px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor:pointer;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.txtPalabraEncontrar{
+    background: darkblue;
+    color: #ff7b05;
+    font-weight: bold;
+    font-size: 2rem;
+    width: 150px;
+    margin-top: 20px;
+}
+
+.buttonNuevoModal{
+    font-size: 2rem;
+}

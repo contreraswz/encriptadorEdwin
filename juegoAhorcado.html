@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style/reset.css" type="text/css" media="screen">
+        <link rel="stylesheet" href="./style/styleJuegoAhorcado.css" type="text/css" media="screen">
+        
+        
+        <title>Juego Ahorcado</title>
+    </head>
+    <body class="gridPrincipal">
+        <header class="header">
+            <div class="headerLogo">
+               <img src="./assets/z.png" class="imagenLogo">
+            </div>
+            
+            <nav class="headerNav"> 
+                    <ul>
+                       <li><a href="./index.html">home</a></li>
+                        <li><a href="./encriptador.html">Encriptador</a></li>
+                        <li><a href="./about.html">about</a></li>
+                    </ul> 
+            </nav> 
+        </header>
+    
+        <main class="main">
+            <div class="mainTitulo">Juego del ahorcado</div>
+
+            <div class="areaAhorcado">
+                <div class="areaAhorcadoFigura" >area 1</div>
+                <div class="areaAhorcadoPalabra" ></div>
+                <div class="areaAhorcadoBotones">
+                    <button id="buttonNuevo">Nuevo</button>
+                    <button id="buttonRendirse">Rendirse</button>
+                </div>
+            </div>
+            
+            <div class="areaLetra">
+                <div class="areaLetraTitulo">¡INTENTALO! Introduce una letra</div>
+                <input class="areaLetraLeer" maxlength="1" type="text" disabled>
+                <div class="areaLetraUsada">
+                    <!-- Aqui se anexan las letras introducidas -->
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="pieLogo" >
+                 <img src="./assets/zero.png" alt="logoZero" class="imagenPie"> 
+                 <p>©By ContrerasWZ</p>
+            </div>
+            <div class="widget1">
+                <ul>
+                    <li><a href="#">interes 1</a></li>
+                    <li><a href="#">interes 2</a></li>
+                    <li><a href="#">interes 3</a></li>
+                    </ul>
+            </div>
+            <div class="widget2">
+                <ul class="">
+                    <li><a href="#">interes 1</a></li>
+                    <li><a href="#">interes 2</a></li>
+                    <li><a href="#">interes 3</a></li>
+                </ul>
+            </div>
+        </footer> 
+
+        <!-- Ventana Modal -->
+        
+        <div class="modal">
+            <div class="modalContenedor">
+                <header>Nuevo juego</header>
+                <button class="buttonCerrar">X</button>
+                <div class="modalContenido">
+                    <p>¿Con cual palabra quieres jugar?</p>
+                    <input class="txtPalabraEncontrar" type="text" >
+                    <button class="buttonNuevoModal">Nuevo</button>
+                </div>
+            </div>
+        </div>
+        <script src="./script/scriptJuegoAhorcado.js"></script>
+    </body>
+</html>
