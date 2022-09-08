@@ -89,7 +89,7 @@ html{
 .areaAhorcado{
     grid-area: areaAhorcado;
     display: grid;
-    grid-template-rows: 1fr .5fr .2fr;
+    grid-template-rows: 2fr .5fr .2fr;
     grid-template-areas: 
     "areaAhorcadoFigura "
     "areaAhorcadoPalabra "
@@ -100,16 +100,11 @@ html{
     border-radius: 10px;
 }
 
-.areaAhorcadoFigura{
+.canvas{
     grid-area: areaAhorcadoFigura;
-    
     background-color: #52304a;
-     width: 80%;
-    height: 90%;
-    margin: auto;
-    text-align: center;
-    align-self: center;
-
+    width: 100%;
+    height: 100%;
 }
 
 .areaAhorcadoPalabra{
