@@ -3,7 +3,6 @@ let letrasEncontradas=[];
 let i=0;
 let palabraIncognita="";
 const ventanaModal = document.querySelector(".modal");
-
 const txtPalabraEncontrar = document.querySelector(".txtPalabraEncontrar");
 const areaAhorcadoPalabra = document.querySelector(".areaAhorcadoPalabra");
 const areaLetraUsada = document.querySelector(".areaLetraUsada");
@@ -38,6 +37,11 @@ txtLetraLeer.addEventListener("keyup",()=>{
                 letrasEncontradas[i]=letra;
                 elementoNuevoP.textContent="✔"+letra;
                 areaLetraUsada.appendChild(elementoNuevoP);
+                for (let i = 0; i < palabraIncognita.length; i++) {
+                    if(palabraIncognita[i]==letra){
+                        areaAhorcadoPalabra.children[i].textContent=letra;
+                    }
+                }
                 txtLetraLeer.value="";
                 i++;
                 break;
@@ -48,49 +52,26 @@ txtLetraLeer.addEventListener("keyup",()=>{
             }
         } else{
                 elementoNuevoP.style.color="#ff6905";
-                elementoNuevoP.textContent=letra+" -> !FALLASTE¡";
+                elementoNuevoP.textContent=letra+" > !FALLASTE¡";
                 areaLetraUsada.appendChild(elementoNuevoP);
                 txtLetraLeer.value="";
         } 
     }
 });
 
-const btnNuevoModal = document.querySelector(".buttonNuevoModal").addEventListener("click",()=>{
+const btnJugar = document.querySelector(".buttonJugar").addEventListener("click",()=>{
     palabraIncognita=txtPalabraEncontrar.value.toLowerCase();
     ventanaModal.style.opacity=0;
     ventanaModal.style.visibility="hidden";
     txtLetraLeer.disabled =false;
+    pintarEspacios();
     txtLetraLeer.focus();
-    pintarLetras();
 });
 
-function pintarLetras(){
-    const elementoNuevoP = document.createElement("p");
-    let espacios="";
+function pintarEspacios(){
+    limpiar();
     for (let index = 0; index < palabraIncognita.length; index++) {
-        espacios=espacios + "-";
-        elementoNuevoP.textContent=espacios;
+        const elementoNuevoP = document.createElement("p");
         areaAhorcadoPalabra.appendChild(elementoNuevoP);
-        /* if (palabraIncognita.includes(letra)) {
-            if (!letrasEncontradas.includes(letra)) {
-                letrasEncontradas[i]=letra;
-                elementoNuevoP.textContent="✔"+letra;
-                
-                txtLetraLeer.value="";
-                i++;
-                break;
-            }else{
-                alert("Letra repetida, Intenta con otra")
-                txtLetraLeer.value="";
-                break;
-            }
-        } else{
-                elementoNuevoP.style.color="#ff6905";
-                elementoNuevoP.textContent=letra+" -> !FALLASTE¡";
-                areaLetraUsada.appendChild(elementoNuevoP);
-                txtLetraLeer.value="";
-        } */ 
     } 
-    alert(espacios);
 }
-
