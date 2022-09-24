@@ -3,14 +3,18 @@ let letrasEncontradas=[];
 let i=0;
 let palabraIncognita="";
 let falla=0;
+
 const ventanaModal = document.querySelector(".modal");
+const ventanaModalResultado = document.querySelector(".modalResultado");
+const modalContenidoResultado = document.querySelector(".modalContenidoResultado");
+const resultadoP = document.createElement("p");
 var canvas=document.querySelector("canvas");
 var pincel=canvas.getContext("2d");
 
 const txtPalabraEncontrar = document.querySelector(".txtPalabraEncontrar");
 const areaAhorcadoPalabra = document.querySelector(".areaAhorcadoPalabra");
 const areaLetraUsada = document.querySelector(".areaLetraUsada");
-const elementoNuevoP = document.createElement("p");
+
 const fragmento = document.createDocumentFragment();
 const txtLetraLeer = document.querySelector(".areaLetraLeer");
 
@@ -25,11 +29,19 @@ const btnCerrar = document.querySelector(".buttonCerrar").addEventListener("clic
     ventanaModal.style.opacity=0;
     ventanaModal.style.visibility="hidden";
     txtLetraLeer.disabled =true;
+    
+});
+
+const btnCerrarResultado = document.querySelector(".buttonCerrarResultado").addEventListener("click",()=>{
+    ventanaModalResultado.style.opacity=0;
+    ventanaModalResultado.style.visibility="hidden";
+    limpiar();
 });
 
 
 const btnRendirse = document.querySelector("#buttonRendirse").addEventListener("click",()=>{
-    alert("Entró a rendirse");
+    resultado("!--PREDISTE CHAMP--¡");
+    limpiar();
 });
 
 txtLetraLeer.addEventListener("keyup",()=>{
@@ -41,10 +53,15 @@ txtLetraLeer.addEventListener("keyup",()=>{
                 letrasEncontradas[i]=letra;
                 elementoNuevoP.textContent="✔"+letra;
                 areaLetraUsada.appendChild(elementoNuevoP);
-                for (let i = 0; i < palabraIncognita.length; i++) {
-                    if(palabraIncognita[i]==letra){
-                        areaAhorcadoPalabra.children[i].textContent=letra;
-                    }
+                if (letrasEncontradas.length==palabraIncognita.length) {
+                    areaAhorcadoPalabra.children[i].textContent=letra;
+                    resultado("!--GANASTE FELICIDADES--¡");
+                } else {
+                    for (let i = 0; i < palabraIncognita.length; i++) {
+                        if(palabraIncognita[i]==letra){
+                            areaAhorcadoPalabra.children[i].textContent=letra;
+                        }
+                    } 
                 }
                 txtLetraLeer.value="";
                 i++;
@@ -55,31 +72,29 @@ txtLetraLeer.addEventListener("keyup",()=>{
                 break;
             }
         } else{
-        
                 falla++;
                 elementoNuevoP.style.color="#ff6905";
                 elementoNuevoP.textContent=letra+" > !FALLASTE¡";
                 areaLetraUsada.appendChild(elementoNuevoP);
                 pintarAhorcado(falla);
                 txtLetraLeer.value="";
-                       
-            
             break; 
         } 
     }
 });
 
-const btnJugar = document.querySelector(".buttonJugar").addEventListener("click",()=>{
+const btnJugar = document.querySelector(".buttonJugar").addEventListener("click",()=>{   
     palabraIncognita=txtPalabraEncontrar.value.toLowerCase();
     ventanaModal.style.opacity=0;
     ventanaModal.style.visibility="hidden";
     txtLetraLeer.disabled =false;
+    limpiar();
     pintarEspacios();
+   
     txtLetraLeer.focus();
 });
 
 function pintarEspacios(){
-    limpiar();
     for (let index = 0; index < palabraIncognita.length; index++) {
         const elementoNuevoP = document.createElement("p");
         areaAhorcadoPalabra.appendChild(elementoNuevoP);
@@ -87,6 +102,39 @@ function pintarEspacios(){
 }
 
 function limpiar() {
+    var padreLetra =document.querySelector(".areaLetraUsada");
+    var hijoLetra = padreLetra.firstChild;
+
+    var padreAhorcado =document.querySelector(".areaAhorcadoPalabra");
+    var hijoAhorcado = padreAhorcado.firstChild;
+
+    var padreResultado =document.querySelector(".modalContenidoResultado");
+    var hijoResultado = padreResultado.firstChild;
+    
+    
+    
+        while (hijoLetra) {
+            padreLetra.removeChild(hijoLetra);
+            hijoLetra =padreLetra.firstChild;
+        }
+    
+        while (hijoAhorcado) {
+            padreAhorcado.removeChild(hijoAhorcado);
+            hijoAhorcado=padreAhorcado.firstChild;
+        }
+    
+         while (hijoResultado) {
+            padreResultado.removeChild(hijoResultado);
+            hijoResultado=padreResultado.firstChild;
+        }   
+    
+     letra ="";
+     letrasEncontradas=[];
+     i=0;
+     falla=0;
+    txtPalabraEncontrar.value="";
+    pincel.clearRect(0,0,canvas.width,canvas.height)
+    alert("paso el limpiar canvas") 
     
 }
 
@@ -122,7 +170,7 @@ function pintarAhorcado(){
             pincel.stroke();            
             break;
         case 6:
-            alert("PERDISTE CARNAL");
+            
             pincel.beginPath();
             pincel.moveTo(157, 55);
             pincel.lineTo(167, 65);
@@ -136,7 +184,19 @@ function pintarAhorcado(){
             pincel.moveTo(182, 55);
             pincel.lineTo(172, 65);
             pincel.stroke();
+
+            resultado("!--PREDISTE CHAMP--¡");
+            
             break;
 
     }
+}
+
+function resultado(arg){
+    const resultadoP = document.createElement("p");
+    ventanaModalResultado.style.opacity=1;
+    ventanaModalResultado.style.visibility="visible";
+    resultadoP.textContent=arg;
+    modalContenidoResultado.appendChild(resultadoP.firstChild);   
+ 
 }
